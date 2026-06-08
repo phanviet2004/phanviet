@@ -1,0 +1,85 @@
+/* =========================================================
+   CSS DÀNH RIÊNG CHO KHU VỰC KHÁCH HÀNG (CLIENT LAYOUT)
+   ========================================================= */
+
+.client-theme {
+    --client-nav-offset: 88px;
+    --bs-primary: #e11d48;
+    --bs-primary-rgb: 225, 29, 72;
+    --bs-link-color: #e11d48;
+    --bs-link-color-rgb: 225, 29, 72;
+    --bs-link-hover-color: #be123c;
+    --bs-link-hover-color-rgb: 190, 18, 60;
+}
+
+@media (max-width: 1024px) {
+    .client-theme {
+        --client-nav-offset: 84px;
+    }
+}
+
+/* 1. HIỆU ỨNG ANIMATION CUỘN (FADE IN UP) */
+@keyframes fadeInUp {
+    0% { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.client-theme .animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0; 
+}
+
+/* 2. HIỆU ỨNG MARQUEE CHẠY NGANG (DẢI HÌNH ẢNH) */
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+}
+
+.client-theme .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+    will-change: transform;
+}
+
+@media (max-width: 768px) {
+    .client-theme .animate-marquee { 
+        animation: marquee 15s linear infinite; 
+    }
+}
+
+.client-theme .animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+/* 3. BÓNG ĐỔ CAO CẤP */
+.client-theme .shadow-btn-primary {
+    box-shadow: 
+        0 1px 2px 0 rgba(5,26,36,0.1), 
+        0 4px 4px 0 rgba(5,26,36,0.09), 
+        0 9px 6px 0 rgba(5,26,36,0.05), 
+        0 17px 7px 0 rgba(5,26,36,0.01), 
+        0 26px 7px 0 rgba(5,26,36,0), 
+        inset 0 2px 8px 0 rgba(255,255,255,0.3); 
+}
+
+.client-theme .shadow-btn-secondary {
+    box-shadow: 
+        0 0 0 0.5px rgba(0,0,0,0.05), 
+        0 4px 30px rgba(0,0,0,0.08);
+}
+
+/* 4. HIỆU ỨNG KÍNH MỜ */
+.client-theme .liquid-glass {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}

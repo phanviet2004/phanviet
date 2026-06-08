@@ -1,0 +1,140 @@
+/* ==================================================== */
+/* 1. IMPORT GOOGLE FONTS (BẮT BUỘC NẰM Ở ĐẦU FILE)     */
+/* ==================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ==================================================== */
+/* 2. KÍCH HOẠT TAILWIND V4                             */
+/* ==================================================== */
+@import "tailwindcss";
+
+/* ==================================================== */
+/* 3. BASE STYLES & RESET (CSS Thuần)                   */
+/* ==================================================== */
+html, body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ==================================================== */
+/* 4. ĐỊNH NGHĨA FONT FACE CUSTOM                       */
+/* ==================================================== */
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9bb43e36419997ecfe_PPNeueMontreal-Book.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9b39c5673e51a86f5a_PPNeueMontreal-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-display: swap;
+}
+
+/* Định nghĩa class hỗ trợ cho Font Playfair */
+.font-serif-accent {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ==================================================== */
+/* 5. ANIMATIONS (HIỆU ỨNG CHUYỂN ĐỘNG)                 */
+/* ==================================================== */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0; /* Bắt buộc opacity 0 ban đầu để animation mượt */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+  will-change: transform; /* Tối ưu hiệu năng render */
+}
+
+/* ==================================================== */
+/* 6. COMPLEX SHADOWS (BÓNG ĐỔ CAO CẤP)                 */
+/* ==================================================== */
+.shadow-btn-primary {
+  box-shadow: 
+    0 1px 2px 0 rgba(5,26,36,0.1), 
+    0 4px 4px 0 rgba(5,26,36,0.09), 
+    0 9px 6px 0 rgba(5,26,36,0.05), 
+    0 17px 7px 0 rgba(5,26,36,0.01), 
+    0 26px 7px 0 rgba(5,26,36,0), 
+    inset 0 2px 8px 0 rgba(255,255,255,0.3);
+}
+
+.shadow-btn-secondary {
+  box-shadow: 
+    0 0 0 0.5px rgba(0,0,0,0.05), 
+    0 4px 30px rgba(0,0,0,0.08);
+}
+
+/* ==================================================== */
+/* 7. REACT TOASTIFY OVERRIDES                          */
+/* ==================================================== */
+.Toastify__toast-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 0;
+}
+
+.Toastify__toast {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  min-height: auto !important;
+}
+
+.Toastify__toast--info {
+  background-color: #e3f2fd !important;
+  color: #0d47a1 !important;
+  border-left: 4px solid #0d47a1 !important;
+  padding: 0 !important;
+}
+
+.Toastify__toast--success {
+  background-color: #e8f5e9 !important;
+  color: #2e7d32 !important;
+}
+
+.Toastify__toast--error {
+  background-color: #ffebee !important;
+  color: #c62828 !important;
+}
+
+.Toastify__close-button {
+  color: inherit !important;
+  opacity: 0.7 !important;
+}
+
+.Toastify__close-button:hover {
+  opacity: 1 !important;
+}

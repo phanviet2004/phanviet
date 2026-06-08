@@ -1,0 +1,411 @@
+:root { 
+    --primary-olive: #5b5a41;     /* màu chính kho */
+    --primary-olive-light: #6f6e55;
+    --primary-green: #4caf50;
+    --primary-red: #f44336;
+
+    --bg-main: #f8f7f0;
+    --card-bg: #ffffff;
+
+    --text-main: #333;
+    --text-sub: #777;
+
+    --border-soft: #ececec;
+}
+
+/* ===== PAGE ===== */
+.log-page-container {
+    padding: 40px;
+    background-color: var(--bg-main);
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.log-page-container h1 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+/* ===== CARD ===== */
+.form-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+/* ===== INPUT ===== */
+.form-card label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-sub);
+    margin-bottom: 6px;
+    display: block;
+}
+
+.form-card select,
+.form-card input,
+.form-card textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border-soft);
+    margin-bottom: 15px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.form-card select:focus,
+.form-card input:focus,
+.form-card textarea:focus {
+    outline: none;
+    border-color: var(--primary-olive);
+    box-shadow: 0 0 0 2px rgba(91, 90, 65, 0.15);
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th {
+    text-align: left;
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    padding-bottom: 12px;
+}
+
+td {
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+/* make table cells use consistent inner layout so inputs align */
+table td > .product-picker,
+table td > div.price-input-cell,
+table td > input,
+table td > .log-stock-cell {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+table td input[type="number"],
+table td input[type="text"],
+table td textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-soft);
+    font-size: 14px;
+}
+
+/* ensure the remove button stays compact */
+td > button {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 8px;
+}
+
+td:first-child {
+    position: relative;
+}
+
+tr:hover {
+    background: #fafafa;
+}
+
+/* ===== STOCK ===== */
+td:last-child {
+    font-weight: 600;
+    color: var(--primary-olive);
+}
+
+/* ===== BUTTON ADD ===== */
+.form-card button {
+    background: #eee;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.form-card button:hover {
+    background: #ddd;
+}
+
+/* ===== BUTTON DELETE ===== */
+td button {
+    background: #fdecea;
+    color: var(--primary-red);
+}
+
+td button:hover {
+    background: #f8d7da;
+}
+
+/* ===== PRODUCT SEARCH PICKER ===== */
+.product-picker {
+    position: relative;
+}
+
+.product-picker input {
+    margin-bottom: 0;
+}
+
+.product-picker-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    max-height: 280px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #e7e2d5;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    z-index: 20;
+}
+
+.product-picker-option {
+    width: 100%;
+    border: none;
+    background: #fff;
+    text-align: left;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.product-picker-option:hover {
+    background: #faf7ef;
+}
+
+.product-picker-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #222;
+}
+
+.product-picker-variant {
+    font-size: 12px;
+    color: var(--text-sub);
+}
+
+.product-picker-empty {
+    padding: 14px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-sub);
+}
+
+.price-input-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.price-input-cell input {
+    margin-bottom: 0;
+}
+
+.price-validation {
+    font-size: 11px;
+    line-height: 1.35;
+    border-radius: 8px;
+    padding: 6px 8px;
+}
+
+.price-validation.ok {
+    background: #e8f5e9;
+    color: #1e4620;
+}
+
+.price-validation.warning {
+    background: #fff4e5;
+    color: #9c5a00;
+}
+
+.price-validation.error {
+    background: #fdecea;
+    color: #b42318;
+}
+
+.price-validation.neutral {
+    background: #f4f4f4;
+    color: #666;
+}
+
+/* ===== MAIN SUBMIT BUTTON ===== */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.25s ease;
+    letter-spacing: 0.5px;
+}
+
+/* inbound (nhập kho) */
+.submit-btn {
+    background: linear-gradient(135deg, #5b5a41, #6f6e55);
+    color: white;
+}
+
+/* outbound (xuất kho) */
+.submit-btn.outbound {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+/* hover đẹp */
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* loading */
+.submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ===== ALERT SUCCESS ===== */
+.alert-banner-success {
+    background: #e8f5e9;
+    color: #1e4620;
+    padding: 12px 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+/* ===== WARNING ROW (QUAN TRỌNG) ===== */
+tr.warning-row {
+    background: #fff1f0 !important;
+}
+
+tr.warning-row td {
+    color: var(--primary-red);
+    font-weight: 600;
+}
+/* ===== TOAST NOTIFICATION ===== */
+.warehouse-toast-container {
+    top: 20px;
+    right: 20px;
+}
+
+.warehouse-toast {
+    min-width: 340px;
+    max-width: 460px;
+    border-radius: 16px;
+    padding: 18px 22px;
+    font-size: 15px;
+    line-height: 1.5;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.16);
+}
+
+.warehouse-toast-body {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+}
+
+.toast {
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    animation: slideInRight 0.3s ease-out;
+}
+
+.toast.toast-success {
+    background: #e8f5e9;
+    color: #1e4620;
+}
+
+.toast.toast-error {
+    background: #fdecea;
+    color: #c0392b;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ===== NOTIFICATION ===== */
+.alert-banner {
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    display: flex;
+    gap: 10px;
+}
+
+.alert-banner.success {
+    background: #e8f5e9;
+    color: #1e4620;
+}
+
+.alert-banner.error {
+    background: #fdecea;
+    color: #c0392b;
+}
+
+/* ===== INPUT ERROR ===== */
+.input-error {
+    border: 1px solid #e74c3c !important;
+    background: #fff5f5;
+}
+
+/* ===== WARNING ROW ===== */
+.warning-row {
+    background: #fff1f0;
+}
+
+.warning-row td {
+    color: #e74c3c;
+    font-weight: 600;
+}

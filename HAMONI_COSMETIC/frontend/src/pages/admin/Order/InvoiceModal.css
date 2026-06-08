@@ -1,0 +1,200 @@
+/* ===== OVERLAY ===== */
+.invoice-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* ===== MODAL ===== */
+.invoice-modal-content {
+    background: white;
+    width: 900px;
+    max-width: calc(100vw - 32px);
+    height: calc(100vh - 32px);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+.invoice-modal-header {
+    padding: 15px 25px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.invoice-modal-header h2 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.close-btn {
+    border: 1px solid #ccc;
+    background: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* ===== CONTENT ===== */
+.invoice-printable {
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    overflow-y: scroll;
+    flex: 1;
+    min-height: 0;
+    scrollbar-gutter: stable;
+}
+
+/* ===== BRAND ===== */
+.invoice-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.brand-name {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.invoice-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+/* ===== INFO ===== */
+.invoice-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.meta-col p {
+    margin: 4px 0;
+}
+
+.invoice-note {
+    margin-top: 6px;
+    color: #555;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* ===== TABLE ===== */
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.invoice-table th {
+    text-align: left;
+    border-bottom: 2px solid black;
+    padding: 10px 5px;
+    font-weight: bold;
+}
+
+.invoice-table td {
+    padding: 10px 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* ===== SUMMARY ===== */
+.invoice-footer-summary {
+    width: 300px;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.summary-line.total {
+    font-weight: bold;
+    font-size: 18px;
+    border-top: 1px solid #000;
+    padding-top: 10px;
+}
+
+/* ===== THANK YOU ===== */
+.thanks-msg {
+    text-align: center;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* ===== FOOTER BUTTON ===== */
+.invoice-modal-footer {
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid #ddd;
+    background: #fff;
+}
+
+.btn-print {
+    background: #22c55e;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+ .btn-cancel-modal {
+    background: #eee;
+    border: 1px solid #ccc;
+    padding: 10px 18px;
+    cursor: pointer;
+    border-radius: 4px; /* Thêm bo góc cho đồng bộ */
+}
+
+/* ===== PRINT ===== */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .invoice-printable,
+    .invoice-printable * {
+        visibility: visible;
+    }
+
+    .invoice-printable {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .invoice-modal-header,
+    .invoice-modal-footer {
+        display: none;
+    }
+}

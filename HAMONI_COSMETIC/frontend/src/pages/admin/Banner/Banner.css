@@ -1,0 +1,205 @@
+/* Nền trang tổng thể */
+.banner-page-container {
+    padding: 30px;
+    background-color: #F8F8F4; /* Màu trắng kem nhạt */
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+.main-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2F332A;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+/* Khối thống kê */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.stat-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #8C8C8C;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #5C5E4A;
+    margin: 0;
+}
+
+.stat-sub {
+    font-size: 13px;
+    font-weight: 400;
+    color: #A0A0A0;
+}
+
+/* Nút thêm mới */
+.btn-add-banner {
+    background-color: #5E6348; /* Màu xanh rêu */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: 0.2s ease;
+}
+
+.btn-add-banner:hover {
+    background-color: #4A4F38;
+}
+
+/* Khối bảng danh sách */
+.table-card {
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.table-title {
+    font-size: 18px;
+    color: #2F332A;
+    margin-bottom: 20px;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.custom-table th {
+    text-align: left;
+    padding: 15px 10px;
+    font-size: 12px;
+    color: #8C8C8C;
+    background-color: #FAFAEE; /* Nền vàng nhạt phần header */
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.custom-table td {
+    padding: 20px 10px;
+    border-bottom: 1px solid #F5F5F5;
+    vertical-align: middle;
+}
+
+.banner-code {
+    font-weight: 600;
+    color: #5C5E4A;
+}
+
+/* Sửa lỗi ảnh: Sử dụng object-fit */
+.banner-img-wrapper {
+    width: 140px;
+    height: 60px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.banner-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Quan trọng: Không để ảnh bị méo */
+}
+
+.campaign-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.campaign-info strong {
+    color: #2F332A;
+    font-size: 15px;
+}
+
+.campaign-info span {
+    color: #A0A0A0;
+    font-size: 12px;
+}
+
+/* Trạng thái */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.status-badge .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.status-badge.active { color: #5C5E4A; }
+.status-badge.active .dot { background-color: #5E6348; }
+
+.status-badge.hidden { color: #B0B0B0; }
+.status-badge.hidden .dot { background-color: #D0D0D0; }
+
+/* Các nút thao tác */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.icon-edit, .icon-delete {
+    cursor: pointer;
+    color: #5C5E4A;
+    transition: 0.2s;
+}
+
+.icon-edit:hover { color: #3A3C2F; }
+.icon-delete:hover { color: #D9534F; }
+
+.loading-text {
+    text-align: center;
+    padding: 40px;
+    color: #8C8C8C;
+}
+
+/* Lớp phủ nền mờ cho Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Nền đen mờ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Đảm bảo nằm trên cùng của bảng và sidebar */
+}
+
+/* Khung trắng chứa Form */
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}

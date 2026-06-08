@@ -1,0 +1,301 @@
+/* =========================================
+   1. LAYOUT CHUNG & HEADER
+   ========================================= */
+.promo-dashboard { 
+    padding: 24px; 
+    background-color: #f8fafc; 
+    min-height: 100vh; 
+    font-family: 'Inter', sans-serif; 
+}
+.page-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 24px; 
+}
+.page-title { 
+    font-size: 24px; 
+    font-weight: 700; 
+    color: #1e293b; 
+    margin: 0; 
+    text-transform: uppercase;
+}
+
+/* Các Nút Bấm Khung Ngoài */
+.btn-add-new { 
+    background: #F8F6C9;
+    color: black; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: all 0.2s ease;
+}
+.btn-add-new:hover { 
+    background: green;
+    color: #fff;
+    transform: translateY(-1px); 
+    box-shadow: 0 4px 6px rgba(225, 29, 72, 0.2);
+}
+
+.btn-back { 
+    background: #e2e8f0; 
+    color: #334155; 
+    border: none; 
+    padding: 8px 16px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-weight: 600; 
+    transition: 0.2s;
+}
+.btn-back:hover { background: #cbd5e1; color: #0f172a;}
+
+/* Hộp trắng bọc nội dung */
+.table-section.full-width, .form-section.full-width { 
+    background: #fff; 
+    padding: 24px; 
+    border-radius: 12px; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+}
+
+/* =========================================
+   2. TRANG DANH SÁCH (BẢNG & BỘ LỌC)
+   ========================================= */
+.promo-table { width: 100%; border-collapse: collapse; }
+.promo-table th { 
+    text-align: left; 
+    padding: 16px 12px; 
+    background: #f8fafc; 
+    border-bottom: 2px solid #e2e8f0; 
+    color: #475569; 
+    font-size: 13px;
+}
+.promo-table td { 
+    padding: 16px 12px; 
+    border-bottom: 1px solid #f1f5f9; 
+    vertical-align: middle; 
+}
+.time-col { font-size: 13px; color: #64748b; line-height: 1.6; }
+.empty-state { text-align: center; padding: 40px !important; color: #94a3b8; }
+
+/* Dòng dữ liệu click được */
+.clickable-row { transition: background-color 0.2s ease; }
+.clickable-row:hover { background-color: #f8fafc; }
+
+/* Badge Trạng thái */
+.status-badge { 
+    padding: 6px 12px; 
+    border-radius: 20px; 
+    font-size: 12px; 
+    font-weight: 600; 
+    display: inline-block; 
+    text-align: center;
+}
+.status-badge.active { background: #dcfce7; color: #16a34a; }
+.status-badge.upcoming { background: #ffedd5; color: #ea580c; }
+.status-badge.ended { background: #fee2e2; color: #dc2626; }
+
+/* =========================================
+   3. TRANG TẠO MỚI/CHỈNH SỬA (FORM)
+   ========================================= */
+.form-card { 
+    border: 1px solid #e2e8f0; 
+    border-radius: 8px; 
+    padding: 24px; 
+    margin-bottom: 24px; 
+}
+.form-card h3 { 
+    margin-top: 0; 
+    color: #334155; 
+    font-size: 18px; 
+    border-bottom: 1px solid #e2e8f0; 
+    padding-bottom: 12px; 
+    margin-bottom: 20px;
+}
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.form-group label { 
+    display: block; 
+    margin-bottom: 6px; 
+    font-size: 14px; 
+    font-weight: 600; 
+    color: #475569; 
+}
+.form-group input, .form-group select { 
+    width: 100%; 
+    padding: 10px 12px; 
+    border: 1px solid #cbd5e1; 
+    border-radius: 6px; 
+    outline: none; 
+    transition: border 0.2s, box-shadow 0.2s;
+    font-size: 14px;
+}
+.form-group input:focus, .form-group select:focus { 
+    border-color: #e11d48; 
+    box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1); 
+}
+
+/* =========================================
+   4. LƯỚI CHỌN SẢN PHẨM RỘNG RÃI (GRID)
+   ========================================= */
+.product-selector-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px; 
+    max-height: 500px; 
+    overflow-y: auto; 
+    padding-right: 10px; 
+}
+
+/* Tùy chỉnh thanh cuộn cho Grid */
+.product-selector-grid::-webkit-scrollbar { width: 6px; }
+.product-selector-grid::-webkit-scrollbar-track { background: transparent; }
+.product-selector-grid::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+.product-selector-grid::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+.product-group-card { 
+    border: 1px solid #cbd5e1; 
+    border-radius: 8px; 
+    background: #f8fafc; 
+    overflow: hidden; 
+}
+.product-group-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    padding: 12px; 
+    background: #e2e8f0; 
+    cursor: pointer; 
+    border-bottom: 1px solid #cbd5e1; 
+    transition: background 0.2s;
+}
+.product-group-header:hover { background: #cbd5e1; }
+.product-name-title { font-weight: 600; color: #1e293b; font-size: 14px;}
+
+.variants-list { 
+    padding: 10px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 4px; 
+    background: #fff; 
+}
+.variant-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    cursor: pointer; 
+    font-size: 13.5px; 
+    color: #475569; 
+    padding: 6px 8px; 
+    border-radius: 4px; 
+    transition: background 0.2s;
+}
+.variant-item:hover { background: #f1f5f9; color: #0f172a; }
+
+input[type="checkbox"] { width: 16px; height: 16px; accent-color: #e11d48; cursor: pointer; }
+
+/* =========================================
+   5. KHU VỰC NÚT SUBMIT FORM
+   ========================================= */
+.form-actions { 
+    display: flex; 
+    justify-content: flex-end; 
+    gap: 15px; 
+    margin-top: 20px; 
+    border-top: 1px solid #e2e8f0; 
+    padding-top: 20px;
+}
+.btn-cancel { 
+    padding: 12px 24px; 
+    border: 1px solid #cbd5e1; 
+    background: #fff; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    color: #64748b; 
+    transition: 0.2s;
+}
+.btn-cancel:hover { background: #f8fafc; color: #1e293b;}
+
+.btn-submit-large { 
+    padding: 12px 32px; 
+    background: #e11d48; 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: 0.2s;
+}
+.btn-submit-large:hover { 
+    background: #be123c; 
+    box-shadow: 0 4px 6px rgba(225, 29, 72, 0.2); 
+}
+/* =========================================
+   6. CUSTOM DROPDOWN LỌC Ở TIÊU ĐỀ CỘT
+   ========================================= */
+
+/* Cột có chứa Dropdown */
+.th-status {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+}
+
+.th-status:hover {
+    background-color: #f1f5f9; /* Hover xám nhẹ vào tiêu đề cột */
+}
+
+.sort-icon {
+    font-size: 10px;
+    margin-left: 4px;
+    color: #64748b;
+}
+
+/* Lớp phủ tàng hình giúp đóng menu khi click ra ngoài */
+.dropdown-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 90;
+    cursor: default;
+}
+
+/* Khung Menu Dropdown */
+.status-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: 1px solid #e2e8f0;
+    z-index: 100;
+    padding: 8px 0;
+    margin-top: 5px;
+    font-weight: normal; /* Bỏ in đậm của th */
+}
+
+/* Từng mục trong Menu */
+.status-dropdown-item {
+    padding: 10px 16px;
+    color: #475569;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.status-dropdown-item:hover {
+    background-color: #f8fafc;
+}
+
+/* Trạng thái đang được chọn (Theo đúng hình mẫu: chữ xanh, viền xanh) */
+.status-dropdown-item.active {
+    color: #2563eb;
+    background-color: #eff6ff;
+    border-left: 3px solid #2563eb;
+    padding-left: 13px; /* Bù trừ đi 3px của viền để chữ không bị xô lệch */
+    font-weight: 600;
+}

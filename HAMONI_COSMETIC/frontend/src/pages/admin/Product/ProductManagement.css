@@ -1,0 +1,239 @@
+/* src/pages/admin/Product/ProductManagement.css */
+
+:root {
+    --primary-olive: #5b5a41; 
+    --bg-light: #fdfbf4;
+}
+
+.product-admin-container {
+    background-color: #fff;
+    padding: 30px;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+.main-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* Nút thêm mới */
+.btn-add-primary {
+    background-color: var(--primary-olive);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.btn-add-primary:hover {
+    background-color: #4a4934;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(91, 90, 65, 0.2);
+}
+
+/* Thanh tìm kiếm và lọc gộp chung */
+.filter-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 12px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #eee;
+}
+
+.search-input-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 400px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    color: #888;
+}
+
+.search-input-group input {
+    width: 100%;
+    padding: 10px 15px 10px 45px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.category-filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    padding: 6px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.category-filter-group select:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* Bảng Sản Phẩm */
+.modern-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.modern-table th {
+    color: #888;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: left;
+    padding: 0 20px;
+    text-transform: uppercase;
+}
+
+/* Hiệu ứng dòng sản phẩm */
+.modern-table tr.product-row {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    border: 1px solid #f0f0f0;
+    transition: all 0.2s ease;
+}
+
+/* HIỆU ỨNG CLICK DÒNG (Hover Effect) */
+.modern-table tr.clickable-row {
+    cursor: pointer;
+}
+
+.modern-table tr.clickable-row:hover {
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+    background-color: #fafafa;
+}
+
+.modern-table td {
+    padding: 18px 20px;
+    vertical-align: middle;
+}
+
+.modern-table td:first-child { border-radius: 12px 0 0 12px; }
+.modern-table td:last-child { border-radius: 0 12px 12px 0; }
+
+.product-id-cell {
+    background: transparent !important;
+}
+
+.product-code {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-olive);
+    background: var(--bg-light);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: monospace;
+    border: 1px solid #ede8d0;
+}
+
+.product-name {
+    font-size: 15px;
+    color: #2c3e50;
+    display: block;
+}
+
+.category-badge {
+    background: #eef2f5;
+    color: #4b6584;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Giới hạn text thành phần không bị dài quá làm tràn bảng */
+.ingredient-text {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Chỉ hiện tối đa 2 dòng */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+/* ===== PHÂN TRANG (PAGINATION) ===== */
+.pagination-wrapper {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    gap: 15px; 
+    margin-top: 30px;
+}
+
+.pagi-numbers-group {
+    display: flex;
+    gap: 8px; 
+}
+
+.pagi-item {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; 
+    border: 1px solid #eee; 
+    background: #fff; 
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    transition: all 0.2s ease;
+}
+
+.pagi-item:hover { 
+    border-color: #333; 
+    color: #000; 
+}
+
+.pagi-item.active {
+    background: var(--primary-olive) !important;
+    color: #fff !important;
+    border-color: var(--primary-olive) !important;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(91, 90, 65, 0.2);
+}
+
+.pagi-arrow {
+    background: transparent; 
+    border: none; 
+    color: #999;
+    font-size: 22px; 
+    cursor: pointer; 
+    padding: 0 5px;
+}
+
+.pagi-arrow:hover:not(:disabled) { 
+    color: #333; 
+    transform: scale(1.1); 
+}
+
+.pagi-arrow:disabled { 
+    cursor: default; 
+    opacity: 0.3; 
+}

@@ -1,0 +1,80 @@
+/* src/pages/admin/Profile/Profile.css */
+
+/* Ghi đè màu chữ chính của Bootstrap */
+.text-primary {
+    color: #003399 !important;
+}
+
+/* =========================================
+   CỘT TRÁI - THẺ PROFILE SUMMARY
+   ========================================= */
+
+.avatar-large {
+    width: 120px;
+    height: 120px;
+    background-color: #635F40; /* Đổi sang màu vàng rêu nhẹ của hệ thống */
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(99, 95, 64, 0.2);
+}
+
+.badge-custom {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.badge-admin { background-color: #f3e5f5; color: #8e44ad; }
+.badge-staff { background-color: #e3f2fd; color: #1976d2; }
+.badge-active { background-color: #e8f5e9; color: #2e7d32; }
+
+/* =========================================
+   CỘT PHẢI - FORM CHỈNH SỬA
+   ========================================= */
+
+.form-control {
+    font-size: 15px !important;
+    border-radius: 8px !important;
+    border: 1px solid #dee2e6;
+    transition: all 0.2s ease;
+}
+
+.form-control:not(:disabled):focus {
+    background-color: #ffffff !important;
+    border-color: #003399;
+    box-shadow: 0 0 0 0.25rem rgba(0, 51, 153, 0.15) !important;
+}
+
+/* Nút Cập nhật */
+.custom-btn-primary {
+    background-color: #003399;
+    color: white;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.custom-btn-primary:hover {
+    background-color: #002266;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 51, 153, 0.2);
+}
+
+/* Nút đổi mật khẩu */
+.btn-outline-secondary {
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+}

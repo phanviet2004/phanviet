@@ -1,0 +1,268 @@
+/* =========================================================
+   1. HEADER VÀ TRẠNG THÁI BADGE
+   ========================================================= */
+.header-left-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.header-left-group .page-title { 
+    margin: 0; 
+    line-height: 1; 
+    text-transform: uppercase;
+    color: #0f172a;
+    font-size: 20px;
+}
+
+.promo-dashboard .btn-back {
+    display: flex; align-items: center; padding: 8px 16px; background: #f1f5f9;
+    color: #475569; border: 1px solid #cbd5e1; border-radius: 6px;
+    font-weight: 600; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: 0.2s;
+}
+
+.promo-dashboard .btn-back:hover { background: #e2e8f0; color: #0f172a; }
+
+.promo-dashboard .badge {
+    padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-left: 10px;
+}
+.promo-dashboard .badge.active { background: #dcfce7; color: #15803d; }
+.promo-dashboard .badge.upcoming { background: #fef9c3; color: #a16207; }
+.promo-dashboard .badge.ended { background: #fee2e2; color: #b91c1c; }
+
+/* =========================================================
+   2. LAYOUT CHIA NGANG 2:3 VÀ KHẮC PHỤC LỖI TRÀN TRANG
+   ========================================================= */
+.promo-create-layout {
+    display: grid; 
+    grid-template-columns: 2fr 3fr; 
+    gap: 24px; 
+    align-items: start; /* Rất quan trọng: Ngăn cột trái bị giãn theo cột phải */
+    margin-top: 10px;
+}
+
+/* CỘT TRÁI */
+.left-column { 
+    position: sticky; 
+    top: 24px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.left-column .form-card {
+    background: #ffffff; padding: 24px; border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0;
+}
+.left-column h3 { font-size: 17px; color: #1e293b; margin: 0 0 20px 0; padding-bottom: 12px; border-bottom: 1.5px solid #f1f5f9; }
+
+/* CỘT PHẢI */
+.right-column { 
+    height: calc(100vh - 120px); /* Ép chiều cao tối đa bằng màn hình trừ Header */
+    min-height: 500px; 
+    padding: 0;
+}
+
+.product-card-container { 
+    padding: 24px; 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; /* Kéo giãn form trắng cao bằng thẻ cha */
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); 
+    border: 1px solid #e2e8f0;
+}
+
+/* =========================================================
+   3. TRANG TRÍ CÁC Ô NHẬP LIỆU (FORM)
+   ========================================================= */
+.promo-dashboard .form-group {
+    display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;
+}
+.promo-dashboard .form-group label {
+    font-size: 13.5px; font-weight: 600; color: #475569;
+}
+.promo-dashboard .form-group input, .promo-dashboard .form-group select {
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #1e293b;
+    outline: none;
+    transition: 0.2s;
+}
+.promo-dashboard .form-group input:focus, .promo-dashboard .form-group select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+.form-grid-2 {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+
+/* =========================================================
+   4. TÌM KIẾM & DANH SÁCH SẢN PHẨM CUỘN NỘI BỘ
+   ========================================================= */
+.product-header-tools {
+    display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; margin-bottom: 12px;
+}
+.product-header-tools h3 { margin: 0; font-size: 17px; color: #334155; border-bottom: none; }
+
+.product-search-bar {
+    display: flex; align-items: center; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 8px 12px; margin-bottom: 10px;
+}
+.product-search-bar input { border: none; background: transparent; width: 100%; outline: none; font-size: 14px; margin-left: 8px; }
+
+/* Khu vực danh sách sản phẩm ép thanh cuộn */
+.product-list-vertical { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    flex: 1; /* Chiếm toàn bộ khoảng trống còn lại */
+    overflow-y: auto; 
+    min-height: 0; /* CỐT LÕI ĐỂ KHÔNG TRÀN TRANG */
+    padding-right: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar { width: 6px; }
+.custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+.custom-scroll::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* =========================================================
+   5. ACCORDION VÀ LƯỚI BIẾN THỂ THÔNG MINH
+   ========================================================= */
+.product-group-row { 
+    border: 1px solid #e2e8f0; 
+    border-radius: 8px; 
+    background: #ffffff; 
+    overflow: hidden; 
+    transition: 0.2s; 
+    flex-shrink: 0; /* CỐT LÕI ĐỂ SẢN PHẨM KHÔNG BỊ ÉP LÙN KHI DANH SÁCH DÀI */
+}
+.product-group-row.expanded { border-color: #cbd5e1; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+
+.product-group-header { display: flex; align-items: center; padding: 10px 12px; background: #f8fafc; border-bottom: 1px solid transparent; }
+.product-group-row.expanded .product-group-header { border-bottom-color: #e2e8f0; background: #f1f5f9; }
+
+.header-left-toggle { cursor: pointer; padding: 4px; margin-right: 4px; display: flex; align-items: center; width: 24px; color: #475569;}
+.header-checkbox-group { display: flex; align-items: center; gap: 10px; cursor: pointer; flex: 1; }
+.product-name-title { font-weight: 600; color: #1e293b; font-size: 14px; }
+
+.header-counter { font-size: 12px; font-weight: 600; }
+.counter-badge { background: #e2e8f0; color: #64748b; padding: 4px 8px; border-radius: 12px; }
+.counter-badge.has-selected { background: #dbeafe; color: #2563eb; }
+
+/* --- LƯỚI BIẾN THỂ (GRID THÔNG MINH 2-3 CỘT) --- */
+.variants-grid-2-col { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Tự co giãn cột */
+    gap: 10px; 
+    padding: 12px; 
+    
+    max-height: 105px; /* Giới hạn 2 hàng */
+    overflow-y: auto; /* Hiện thanh cuộn nếu quá 2 hàng */
+    
+    border-top: 1px solid #f1f5f9;
+    background-color: #ffffff;
+}
+
+.variants-grid-2-col::-webkit-scrollbar { width: 4px; }
+.variants-grid-2-col::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+.variant-item {
+    display: flex; align-items: center; gap: 8px; padding: 8px 10px;
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px;
+    cursor: pointer; transition: 0.2s;
+}
+.variant-item:hover { background: #f1f5f9; border-color: #cbd5e1; }
+.variant-item span {
+    font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #475569;
+}
+
+/* =========================================================
+   6. NÚT BẤM VÀ VÙNG NGUY HIỂM (CỘT TRÁI DƯỚI CÙNG)
+   ========================================================= */
+.form-actions-column { margin-top: 20px; }
+
+.btn-save-main { 
+    width: 100%; padding: 14px; background: #2563eb; color: #ffffff; 
+    border: none; border-radius: 8px; font-weight: 700; font-size: 15px; 
+    cursor: pointer; transition: 0.2s; 
+}
+.btn-save-main:hover { background: #1d4ed8; }
+
+.danger-zone { margin-top: 40px; padding-top: 20px; border-top: 1px dashed #cbd5e1; }
+.danger-zone p { font-size: 13px; color: #94a3b8; font-weight: 600; margin-bottom: 10px;}
+
+.btn-delete-promo { 
+    width: 100%; padding: 12px; background: #ffffff; 
+    border: 1.5px solid #fee2e2; border-radius: 8px; font-weight: 600; 
+    color: #dc2626; cursor: pointer; transition: 0.2s; 
+}
+.btn-delete-promo:hover { background: #fef2f2; border-color: #dc2626; }
+
+/* =========================================================
+   7. MODAL XÁC NHẬN XÓA
+   ========================================================= */
+.delete-modal-overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);
+    display: flex; justify-content: center; align-items: center; z-index: 9999; 
+    animation: fadeIn 0.2s ease-out;
+}
+
+.delete-modal-box {
+    background: #ffffff; width: 400px; padding: 32px; border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); text-align: center; 
+    animation: slideUp 0.3s ease-out;
+}
+
+.modal-warning-icon { font-size: 48px; margin-bottom: 16px; }
+.delete-modal-box h3 { margin: 0 0 12px 0; color: #0f172a; font-size: 20px; }
+.delete-modal-box p { color: #64748b; font-size: 14px; line-height: 1.5; margin-bottom: 24px; }
+.modal-actions { display: flex; gap: 12px; }
+
+.btn-modal-cancel { flex: 1; padding: 12px; background: #f1f5f9; color: #475569; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+.btn-modal-cancel:hover { background: #e2e8f0; }
+
+.btn-modal-confirm { flex: 1; padding: 12px; background: #dc2626; color: #ffffff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s;}
+.btn-modal-confirm:hover { background: #b91c1c; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =========================================================
+   8. MÀN HÌNH CHỜ (LOADING)
+   ========================================================= */
+.promo-dashboard .loading-screen { 
+    display: flex; justify-content: center; align-items: center; 
+    height: 100vh; font-size: 18px; color: #64748b; font-weight: 600;
+}
+/* =======================================================
+   ÉP BUỘC CHECKBOX VÀ CHỮ SÁT LỀ TRÁI (KHÔNG CHO RA GIỮA)
+   ======================================================= */
+
+.promo-dashboard .header-checkbox-group {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important; /* Ép tuyệt đối về bên trái */
+    gap: 10px !important;
+    flex: 1 !important;
+    width: 100% !important;
+}
+
+.promo-dashboard .variant-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important; /* Ép tuyệt đối về bên trái */
+    gap: 8px !important;
+}
+
+/* Đảm bảo ô vuông checkbox có kích thước chuẩn, không bị bóp méo hay lùi dòng */
+.promo-dashboard .header-checkbox-group input[type="checkbox"],
+.promo-dashboard .variant-item input[type="checkbox"] {
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    width: 16px !important;
+    height: 16px !important;
+}

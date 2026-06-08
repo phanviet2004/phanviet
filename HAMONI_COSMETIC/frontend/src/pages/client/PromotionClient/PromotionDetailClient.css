@@ -1,0 +1,25 @@
+/* Hiệu ứng khi khuyến mãi đã hết hạn */
+.promo-expired-card {
+    filter: grayscale(0.2);
+    opacity: 0.7;
+    pointer-events: none; /* Ngăn tương tác khi đã hết hạn */
+    transition: all 0.3s ease;
+}
+
+.promo-product-name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2; /* Thêm dòng này để chuẩn hóa */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 40px; 
+}
+
+/* Tùy chỉnh thanh cuộn cho bộ lọc sắp xếp trên mobile */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

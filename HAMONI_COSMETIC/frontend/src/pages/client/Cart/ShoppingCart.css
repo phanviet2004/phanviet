@@ -1,0 +1,389 @@
+/* --- CẤU TRÚC NỀN PC --- */
+.cart-wrapper-pc,
+.cart-wrapper-pc * {
+  box-sizing: border-box;
+}
+
+.cart-wrapper-pc {
+  background-color: #f5f5f5; /* Nền xám nhạt Shopee */
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px 0;
+  font-family: inherit;
+}
+
+.cart-container-pc {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- HEADER THANH ĐIỀU HƯỚNG --- */
+.cart-pc-header-nav {
+  background: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #ee4d2d;
+  margin-bottom: 20px;
+  /* BO GÓC ĐẸP */
+  border-radius: 8px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-text {
+  font-size: 22px;
+  color: #ee4d2d;
+  font-weight: bold;
+  border-left: 1px solid #ee4d2d;
+  padding-left: 15px;
+}
+
+.back-icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #ee4d2d;
+}
+
+.edit-btn {
+  color: #555;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-btn:hover {
+  color: #ee4d2d;
+}
+
+/* --- TIÊU ĐỀ CÁC CỘT (Sản phẩm, Đơn giá...) --- */
+.cart-pc-table-header {
+  background: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  /* CẬP NHẬT: Chữ đen và in đậm */
+  color: #000; 
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Định nghĩa độ rộng cố định cho các cột */
+.col-check {
+  width: 50px;
+}
+
+.col-product {
+  flex: 4;
+}
+
+.col-price {
+  flex: 1.5;
+  text-align: center;
+}
+
+.col-quantity {
+  flex: 1.5;
+  text-align: center;
+}
+
+.col-total {
+  flex: 1.5;
+  text-align: center;
+}
+
+.col-action {
+  flex: 1;
+  text-align: center;
+}
+
+/* --- DANH SÁCH ITEM SẢN PHẨM --- */
+.cart-pc-item {
+  background: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  /* BO GÓC ĐẸP */
+  border-radius: 8px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.product-info-box {
+  display: flex;
+  align-items: center;
+}
+
+.product-img-placeholder {
+  width: 80px;
+  height: 80px;
+  background: #f8f8f8;
+  border: 1px solid #eee;
+  /* BO GÓC ẢNH */
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.product-text {
+  padding-left: 15px;
+}
+
+.product-name {
+  font-size: 14px;
+  color: #222;
+  /* IN ĐẬM TÊN SẢN PHẨM */
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.product-variant {
+  color: #888;
+  font-size: 13px;
+}
+
+.col-total-red {
+  flex: 1.5;
+  text-align: center;
+  color: #ee4d2d;
+  font-weight: 700;
+}
+
+.delete-text {
+  cursor: pointer;
+  color: #555;
+}
+
+.delete-text:hover {
+  color: #ee4d2d;
+}
+
+/* --- BỘ TĂNG GIẢM SỐ LƯỢNG (FIX LỖI LỆCH SỐ) --- */
+.qty-control-pc {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.qty-control-pc button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: white;
+  background: #f2f1f1;
+  cursor: pointer;
+  font-size: 18px;
+  color: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qty-control-pc input {
+  width: 50px;
+  height: 32px;
+  /* FIX CĂN GIỮA TUYỆT ĐỐI */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-top: none;
+  border-bottom: none;
+  outline: none;
+  background: transparent;
+  -moz-appearance: textfield;
+}
+
+/* Tắt mũi tên tăng giảm mặc định của input số */
+.qty-control-pc input::-webkit-outer-spin-button,
+.qty-control-pc input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* --- THANH THANH TOÁN (FOOTER) --- */
+.cart-pc-footer {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+  
+  /* ĐÃ FIX: Giảm z-index xuống 10 để không đè lên menu header */
+  z-index: 10; 
+  
+  /* BO GÓC FOOTER */
+  border-radius: 8px 8px 0 0;
+}
+
+.footer-top {
+  padding: 15px 20px;
+  border-bottom: 1px dashed #ddd;
+}
+
+.voucher-link {
+  font-size: 14px;
+  color: #222;
+  cursor: pointer;
+}
+
+.voucher-link span {
+  color: #0055aa;
+  margin-left: 20px;
+}
+
+.footer-bottom {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 15px;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.total-label {
+  font-size: 16px;
+  color: #222;
+}
+
+.total-amount-large {
+  font-size: 26px;
+  color: #ee4d2d;
+  margin: 0 20px;
+  font-weight: 700;
+}
+
+.btn-buy {
+  background: #ee4d2d;
+  color: white;
+  border: none;
+  padding: 12px 60px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-buy:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* --- CHẾ ĐỘ CHỈNH SỬA (EDIT MODE) --- */
+.edit-actions-pc {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-wishlist {
+  border: 1px solid #ee4d2d;
+  color: #ee4d2d;
+  background: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-delete-multi {
+  background: #ee4d2d;
+  color: white;
+  border: none;
+  padding: 10px 40px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-all-btn {
+  color: #ee4d2d;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* --- MODAL XÁC NHẬN --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.custom-modal {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;
+  text-align: center;
+}
+
+.modal-content {
+  font-size: 16px;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal-btn {
+  padding: 10px 30px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.modal-btn-confirm {
+  background: #ee4d2d;
+  color: white;
+  border-color: #ee4d2d;
+}
+
+/* --- KHÁC --- */
+.hamoni-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #ee4d2d;
+  cursor: pointer;
+}
+
+.empty-cart-pc {
+  background: white;
+  padding: 100px;
+  text-align: center;
+  font-size: 18px;
+  color: #888;
+  border-radius: 12px;
+}

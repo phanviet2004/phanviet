@@ -1,0 +1,297 @@
+.dashboard-wrapper {
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ===== HEADER ===== */
+.section-header {
+  background: #bdca72;
+  color: white;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 6px 6px 0 0;
+}
+
+.section-header-blue {
+  background: #bdca72;
+  color: white;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 6px 6px 0 0;
+}
+
+/* ===== CARD ===== */
+.custom-card {
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  margin-bottom: 20px;
+  /* ĐÃ XÓA overflow: hidden; Ở ĐÂY ĐỂ MENU KHÔNG BỊ CẮT ĐỨT */
+}
+
+/* ===== STAT ===== */
+.stat-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stat-col {
+  width: 25%;
+  padding: 20px;
+  text-align: center;
+  border-right: 1px solid #eee;
+}
+
+.stat-col:last-child {
+  border-right: none;
+}
+
+.stat-title {
+  font-size: 13px;
+  color: #666;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* ===== HORIZONTAL FILTER (ÉP CỨNG CHỐNG LỆCH) ===== */
+.horizontal-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+  background: #fdfdfd;
+  border-bottom: 1px solid #eee;
+  align-items: flex-end  /* Ép tất cả các khối con nằm sát đáy */
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 140px;
+  margin-bottom: 0 !important; /* Xóa margin ẩn */
+}
+
+.filter-item label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+/* Các ô nhập liệu */
+.filter-item input,
+.filter-item select {
+  height: 34px !important; /* Ép cứng chiều cao */
+  padding: 0 10px !important;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+  box-sizing: border-box !important;
+  margin: 0 !important; /* Xóa margin ẩn */
+  line-height: normal !important; /* Ngừa lỗi font chữ làm cao lên */
+}
+
+.filter-item input:focus,
+.filter-item select:focus {
+  outline: none;
+  border-color: #bdca72;
+}
+
+/* ===== FIX GIAO DIỆN REACT-SELECT CHO KHỚP VỚI 34PX CỦA BẠN ===== */
+.react-select__control {
+  min-height: 34px !important; /* Ép xuống 34px */
+  height: 34px !important;
+  border-radius: 6px !important; /* Khớp với border-radius 6px của bạn */
+  border-color: #ccc !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+.react-select__control:hover,
+.react-select__control--is-focused {
+  border-color: #bdca72 !important; /* Hover ra viền xanh lá của bạn */
+}
+
+/* Ép nội dung và thanh gõ chữ căn giữa, không bị che lấp */
+.react-select__value-container {
+  padding: 0 10px !important;
+  display: flex !important;
+  align-items: center !important; 
+}
+
+.react-select__input-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.react-select__input-container input {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: normal !important; 
+}
+/* ========================================================= */
+
+.react-select__indicators {
+  height: 32px !important;
+}
+
+/* ===== FIX MENU BỊ BÓP NHỎ LÀM RỚT CHỮ ===== */
+.react-select__menu {
+  z-index: 9999 !important; /* Luôn nổi lên trên */
+  min-width: 100% !important; /* Ít nhất bằng ô input */
+  width: max-content !important; /* Tự động bung rộng ra cho vừa chiều dài chữ */
+  max-width: 400px !important; /* Khóa giới hạn tránh dài quá tràn màn hình */
+}
+
+/* Khử màu nền xanh dương mặc định gớm ghiếc của thư viện */
+.react-select__option--is-focused {
+  background-color: #f4f7f6 !important;
+  color: #333 !important;
+}
+
+.react-select__option--is-selected {
+  background-color: #bdca72 !important; /* Đổi màu chọn thành xanh lá của bạn */
+  color: white !important;
+}
+
+/* ===== KHU VỰC CÁC NÚT BẤM (FIX TRIỆT ĐỂ SO LE) ===== */
+.filter-actions-row {
+  display: flex;
+  flex-direction: row; 
+  gap: 10px;
+  align-items: flex-end !important;
+  flex-wrap: nowrap !important; 
+  margin: 0 !important; /* Xóa mọi khoảng cách thừa */
+  padding: 0 !important;
+  height: 35px !important; /* Cái bọc nút phải bằng y xì cái thẻ input */
+}
+
+.filter-actions-row button {
+  height: 100% !important; /* Cùng thông số với thẻ input */
+  padding: 0 15px !important;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  box-sizing: border-box !important;
+  
+  /* Căn chữ bên trong nút */
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  width: auto !important; 
+  flex: 0 0 auto !important; 
+  margin: 0 !important; /* Cực kỳ quan trọng để không lệch */
+  line-height: normal !important;
+  
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.filter-actions-row button:active {
+  transform: scale(0.92) translateY(2px);
+}
+/* ============================================== */
+
+.btn-green {
+  background: #cbc168;
+  color: white;
+}
+
+.btn-gray {
+  background: #325368;
+  color: white;
+}
+
+.btn-export {
+  background: #198754;
+  color: white;
+}
+
+/* ===== TABLE ===== */
+.table-container {
+  max-height: 280px; 
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f8f9fa;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+th, td {
+  padding: 10px;
+  font-size: 13px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+/* ===== CHART GRID ===== */
+.chart-container-row {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  flex-wrap: wrap;
+}
+
+.chart-box {
+  flex: 1;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background: #fff;
+  min-width: 300px;
+  min-height: 350px; 
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-header {
+  background: #f8f9fa;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+}
+
+.chart-body {
+  flex: 1;
+  width: 100%;
+  min-height: 300px;
+}
+
+/* ===== RESPONSIVE CHO ĐIỆN THOẠI ===== */
+@media (max-width: 768px) {
+  .stat-col {
+    width: 50%;
+  }
+  .horizontal-filter {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+  .filter-actions-row {
+    width: 100%;
+    margin-top: 10px !important;
+    height: auto !important; /* Nhả height ra khi ở màn hình nhỏ */
+    flex-wrap: wrap !important; 
+    justify-content: flex-start;
+  }
+  .filter-actions-row button {
+    flex: 1 1 auto !important;
+  }
+  .chart-container-row {
+    flex-direction: column;
+  }
+}

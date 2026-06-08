@@ -1,0 +1,195 @@
+/* =========================================
+   GIAO DIỆN QUẢN LÝ KHÁCH HÀNG (HAMONI)
+   ========================================= */
+
+.admin-container {
+    padding: 40px;
+    background-color: #F6F3EF; /* Màu nền chuẩn từ thiết kế */
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+/* THANH CÔNG CỤ (Search & Filter) */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px; 
+    border: 1px solid #B7DAC8; 
+    margin-bottom: 25px;
+}
+
+.search-box-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 500px;
+}
+
+.search-icon-inner {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.search-box-wrapper input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border-radius: 30px;
+    border: 1px solid #E0E0E0;
+    background-color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-box-wrapper input:focus {
+    border-color: #7D8471;
+}
+
+.filter-select {
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid #E0E0E0;
+    background: #fff;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 15px;
+    outline: none;
+}
+
+/* NÚT BẤM */
+.download-btn {
+    background: white;
+    border: 1px solid #E0E0E0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #7D8471;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.download-btn:hover {
+    background: #f0f2ef;
+    border-color: #7D8471;
+}
+
+/* BẢNG DỮ LIỆU */
+.table-card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #B7DAC8;
+    overflow: hidden;
+}
+
+.customer-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.customer-table th {
+    background-color: #FBFAF5; 
+    text-align: left;
+    padding: 18px 25px;
+    color: #8D8D8D;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.customer-table td {
+    padding: 20px 25px;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 14px;
+    color: #1a1a1a;
+}
+
+.customer-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.customer-table tbody tr:hover {
+    background-color: #faf8f2;
+}
+
+/* AVATAR */
+.avatar {
+    width: 40px;
+    height: 40px;
+    background: #D0DA76; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #333;
+    opacity: 0.8;
+}
+
+/* TRẠNG THÁI BADGE */
+/* TRẠNG THÁI BADGE (Đã bỏ màu nền theo yêu cầu) */
+.status-badge {
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-active { 
+    color: #27ae60 !important; /* Chỉ giữ lại màu chữ xanh lá */
+    background: transparent !important; /* Ép bỏ màu nền bị rò rỉ */
+}
+
+.status-banned { 
+    color: #e74c3c !important; /* Chỉ giữ lại màu chữ đỏ */
+    background: transparent !important; /* Ép bỏ màu nền bị rò rỉ */
+}
+
+/* PHÂN TRANG */
+.pagination-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 25px;
+    background-color: #FBFAF5;
+    border-top: 1px solid #f0f0f0;
+    gap: 12px;
+}
+
+.page-number {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid #E0E0E0;
+    background: transparent;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #333;
+}
+
+.page-number.active {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}

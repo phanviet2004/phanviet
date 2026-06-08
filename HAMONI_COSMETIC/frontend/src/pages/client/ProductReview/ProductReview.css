@@ -1,0 +1,123 @@
+.product-review-wrapper {
+  max-width: 550px;
+  margin: 40px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.product-thumbnail {
+  width: 65px;
+  height: 65px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  margin-right: 15px;
+  overflow: hidden;
+}
+
+.product-title-group .review-label {
+  color: #c43c2c;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+}
+
+.review-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 35px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.form-section { margin-bottom: 25px; }
+
+.star-rating-group { display: flex; gap: 8px; }
+.star-item { font-size: 26px; color: #e4e4e4; cursor: pointer; }
+.star-item.active { color: #f1c40f; }
+
+.review-textarea {
+  width: 100%;
+  height: 120px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  padding: 15px;
+  resize: none;
+}
+
+/* --- PHẦN UPLOAD HÌNH ẢNH/VIDEO --- */
+.image-upload-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.preview-item {
+  position: relative;
+  width: 75px;
+  height: 75px;
+}
+
+.mock-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+.remove-btn {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.upload-trigger {
+  width: 75px;
+  height: 75px;
+  border: 1px dashed #d1d1d1;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.trigger-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #999;
+}
+
+.trigger-text { font-size: 8px; font-weight: 600; text-align: center; }
+
+.btn-submit-green {
+  width: 100%;
+  background-color: #30b350; 
+  color: #ffffff;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}

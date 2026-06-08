@@ -1,0 +1,693 @@
+.review-management-container {
+    padding: 30px;
+    background-color: #f8f5f4; /* Đã fix lỗi màu nền */
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* TIÊU ĐỀ */
+.page-title {
+    font-size: 30px !important;
+    font-weight: 800;
+    margin-bottom: 50px;
+    color: #000;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+/* STATS CARDS */
+.review-stats-section {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.review-stat-card {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 30px 40px; 
+    border-radius: 24px; 
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    text-align: center;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.02);
+    position: relative;    
+    min-height: 140px; 
+    border: 1px solid #dcdcdc;
+}
+
+.review-stat-card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.review-stat-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0d0c0c;
+    letter-spacing: 1px;
+}
+
+.review-stat-number {
+    font-size: 58px;
+    font-weight: 800;
+    color: #B22222;
+    margin: 10px 0 0 0; 
+    line-height: 1;
+    display: block;
+}
+
+.review-stat-action-link {
+    margin-top: 15px; 
+    
+    /* Các dòng dưới giữ nguyên */
+    background: none;
+    border: none;
+    color: #B22222;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.8;
+    width: max-content;
+}
+
+.review-stat-action-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* =======================================================
+   TABLE AREA (Bảng chính - Đã gộp code sạch sẽ)
+   ======================================================= */
+.table-wrapper {
+    background: rgb(255, 255, 255);
+    border-radius: 45px;
+    padding: 45px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.03);
+    flex: 1; 
+    margin: 0; 
+    min-width: 0; 
+    max-height: calc(100vh - 60px); 
+    overflow: auto; 
+    border: 1px solid #dcdcdc;
+}
+
+/* THANH CUỘN CHO BẢNG CHÍNH */
+.table-wrapper::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px;
+}
+.table-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+    margin: 40px 0; 
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #d4d4d4; 
+    border-radius: 10px;
+}
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #b0b0b0;
+}
+/* ======================================================= */
+
+.table-controls {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.table-controls > div {
+    display: flex;
+    align-items: center;
+    gap: 25px; 
+}
+
+.tab-item {
+    font-size: 18px;
+    font-weight: 800;
+    border: none;
+    background: none;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #000;
+    cursor: pointer;
+}
+
+/* NÚT LÀM MỚI */
+.btn-reset-filters {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    height: 45px;
+    transition: all 0.2s ease;
+}
+
+.btn-reset-filters:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+}
+
+.btn-reset-filters:active {
+    transform: scale(0.97);
+}
+
+.filter-button {
+    background-color: #F9F7D2;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    height: 44px;
+    transition: all 0.2s ease;
+}
+
+.filter-button:hover, .btn-refresh:hover, .table-controls select:hover, .table-controls input:hover {
+    transform: translateY(-3px);
+}
+
+.filter-button:active, .btn-refresh:active, .table-controls select:active, .table-controls input:active {
+    transform: translateY(0) scale(0.95);
+}
+
+/* TABLE STYLES (Đã bỏ ghim tiêu đề) */
+.hamoni-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.hamoni-table th {
+    text-align: left;
+    padding: 20px;
+    font-size: 12px;
+    color: #0f0e0e;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-bottom: 1px dashed #EEE;
+    background-color: #f6f3f1;
+}
+
+/* Override any global sticky thead rules so header doesn't overlap content */
+.hamoni-table thead {
+    position: static !important;
+    top: auto !important;
+    z-index: auto !important;
+}
+
+.hamoni-table thead th {
+    position: static !important;
+}
+
+.hamoni-table td {
+    padding: 25px 20px;
+    border-bottom: 1px dashed #EEE;
+}
+
+.customer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.customer-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.customer-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: #333;
+}
+
+.review-date {
+    font-size: 12px;
+    color: #CCC;
+}
+
+.stars {
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.star-icon {
+    color: #E0E0E0;
+}
+
+.star-icon.filled {
+    color: #F5A623;
+}
+
+.comment-cell {
+    font-style: italic;
+    color: #666;
+    max-width: 320px;
+}
+
+/* BADGES */
+.status-badge {
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.status-replied { background: #E6F9F0; color: #57C78D; }
+.status-pending { background: #FFF4E6; color: #E6A23C; }
+.status-approved { background: #E7F0FF; color: #7CA3F5; }
+
+/* =======================================================
+   PAGINATION
+   ======================================================= */
+.table-footer {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #f0f0f0; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; 
+}
+
+.pagination-info {
+    font-size: 14px; 
+    color: #a0a0a0; 
+    white-space: nowrap; 
+    flex-shrink: 0; 
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    flex-wrap: wrap; 
+    justify-content: flex-end;
+}
+
+.page-btn {
+    background-color: #fff;
+    border: 1px solid #eaeaea; 
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.page-btn:hover {
+    border-color: #ccc;
+    background-color: #fafafa;
+}
+
+.page-btn.active {
+    background-color: #5F5E40; 
+    color: white;
+    border-color: #5F5E40;
+    box-shadow: 0 4px 10px rgba(95, 94, 64, 0.2); 
+}
+
+.page-arrow {
+    background: none;
+    border: none;
+    color: #ccc; 
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.page-arrow:hover {
+    color: #666;
+}
+
+.page-ellipsis {
+    color: #ccc;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 0 5px;
+    display: flex;
+    align-items: flex-end;
+    height: 38px;
+    padding-bottom: 12px;
+}
+
+/* ======================================================= */
+
+/* MODAL CHỈNH SỬA (Có thanh cuộn) */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 25px;
+    width: 550px;
+    max-width: 90%;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    position: relative;
+    animation: slideUp 0.3s ease-out;
+    
+    /* Bật thanh cuộn cho Modal */
+    max-height: 85vh; 
+    overflow-y: auto; 
+}
+
+/* Làm đẹp thanh cuộn cho Modal */
+.modal-box::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-box::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 20px 0;
+}
+.modal-box::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+.modal-box::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.modal-box h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.modal-box textarea {
+    width: 100%;
+    min-height: 150px;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+    resize: none;
+    margin-bottom: 25px;
+    box-sizing: border-box;
+}
+
+/* CÁI NÀY DÙNG CHO Ô PHẢN HỒI (reply-textarea) TRONG MODAL */
+.reply-textarea {
+    width: 100%;
+    min-height: 130px;
+    max-height: 55vh;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    resize: vertical;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+/* Ngăn chat bubble làm vỡ layout và cho phép wrap nội dung */
+.chat {
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+/* Giữ khoảng cách và căn trái/phải cho các chat bubble */
+.chat.user { text-align: left; margin-right: auto; }
+.chat.admin { text-align: right; margin-left: auto; }
+
+.modal-actions, .modal-reply-actions {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    gap: 30px; 
+}
+
+.modal-box button {
+    min-width: 130px; 
+    padding: 12px 25px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal-box button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.modal-box button:active {
+    transform: translateY(0) scale(0.94);
+}
+
+/* Nút Hành động chính: Gửi / Phản hồi (Màu xanh) */
+.modal-box button.btn-send-reply, 
+.modal-box button.btn-modal-reply-trigger {
+    background-color: #28a745; /* Màu xanh lá. Nếu bạn thích màu xanh rêu của web thì đổi thành #5F5E40 nhé */
+    color: white;
+}
+
+/* Nút Phụ: Hủy / Đóng (Màu xám) */
+.modal-box button.btn-cancel-reply, 
+.modal-box button.btn-modal-close {
+    background-color: #dad6d6;
+    color: #333;
+}
+
+/* Thêm hiệu ứng hover riêng cho nút Hủy để đẹp hơn */
+.modal-box button.btn-cancel-reply:hover, 
+.modal-box button.btn-modal-close:hover {
+    background-color: #dad6d6;
+}
+/* ANIMATIONS */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.review-row:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.table-controls input[type="date"],
+.table-controls select {
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    height: 44px;
+    box-sizing: border-box;
+}
+
+.chat {
+    padding: 8px 12px;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* KHÁCH */
+.chat.user {
+    background: #f1f1f1;
+    text-align: left;
+}
+
+/* ADMIN */
+.chat.admin {
+    background: #e6f4ff;
+    text-align: right;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   ====== CÁC CLASS MỚI TÁCH TỪ INLINE STYLE BÊN JSX ======
+   ========================================================== */
+
+.review-main-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* CSS cho Sidebar */
+.sidebar-container {
+    width: 300px;
+    background-color: #fff;
+    padding: 25px 20px;
+    border-radius: 35px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.03);
+    position: sticky;
+    top: 20px;
+    border: 1px solid #dcdcdc;
+}
+
+.sidebar-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #1a1a1a;
+}
+
+.sidebar-divider {
+    border: none;
+    border-top: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.sidebar-search-input {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 1px solid #5F5E40;
+    margin-bottom: 20px;
+    outline: none;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 14px;
+    text-align: center;
+}
+
+.sidebar-product-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.sidebar-product-item {
+    padding: 14px 20px;
+    border-radius: 18px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.sidebar-product-item.active {
+    background: rgb(90, 89, 85);
+    color: #fff;
+}
+
+.sidebar-product-item.inactive {
+    background-color: #f4f1ef;
+    color: #333;
+}
+
+/* Modifier cho dòng "Tất cả sản phẩm" để to hơn xíu */
+.sidebar-product-item.header-item {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.sidebar-product-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+
+.sidebar-badge-pending {
+    background-color: #ff4d4f;
+    color: #fff;
+    font-size: 12px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.sidebar-badge-total {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.sidebar-product-item.active .sidebar-badge-total {
+    opacity: 0.9;
+}
+
+.sidebar-product-item.inactive .sidebar-badge-total {
+    opacity: 0.5;
+}
+
+.sidebar-no-product {
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+aside div[style*="overflow-y: auto"] {
+    scrollbar-width: thin;
+    scrollbar-color: #ccc #f4f1ef;
+}
+
+aside div[style*="overflow-y: auto"]::-webkit-scrollbar {
+    width: 6px; 
+}
+
+aside div[style*="overflow-y: auto"]::-webkit-scrollbar-track {
+    background: #f4f1ef;
+    border-radius: 10px;
+}
+
+aside div[style*="overflow-y: auto"]::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+aside div[style*="overflow-y: auto"]::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

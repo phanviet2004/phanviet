@@ -1,0 +1,346 @@
+:root {
+    --primary-olive: #5b5a41; 
+    --bg-light: #f8f9fa;
+    --border-color: #eaeaea;
+}
+
+.product-detail-container {
+    padding: 30px;
+    background-color: var(--bg-light);
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.btn-back {
+    background: #fff; border: 1px solid var(--border-color);
+    width: 50px; height: 50px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: 0.2s;
+}
+
+.btn-back:hover { background: #eee; }
+
+.btn-save-primary {
+    background-color: var(--primary-olive); color: #fff;
+    border: none; padding: 10px 20px; border-radius: 8px;
+    font-weight: 600; display: flex; align-items: center; gap: 8px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.btn-save-primary:hover:not(:disabled) {
+    background-color: #4a4934;
+}
+
+.btn-save-primary:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.left-col, .right-col {
+    min-width: 0; /* 🔥 Chìa khóa vàng: Ép Grid tuân thủ tuyệt đối tỉ lệ 3:2 */
+}
+
+/* Đảm bảo detail-layout của bạn đang là 3:2 như sau: */
+.detail-layout {
+    display: grid;
+    grid-template-columns: 3fr 2fr; 
+    gap: 25px;
+    align-items: start;
+} 
+
+.detail-card {
+    background: #fff; padding: 25px;
+    border-radius: 12px; border: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.card-title {
+    font-size: 16px; font-weight: 700; color: #333;
+    padding-bottom: 15px; border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+/* ==========================================
+   FORM NHẬP THÔNG TIN CƠ BẢN
+   ========================================== */
+.form-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.full-width { grid-column: span 2; }
+
+.form-group label { font-size: 13px; font-weight: 600; color: #555; }
+.form-group input, .form-group select, .form-group textarea {
+    padding: 10px 15px; border: 1px solid #ddd;
+    border-radius: 8px; outline: none; font-size: 14px;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { 
+    border-color: var(--primary-olive); 
+}
+
+/* ==========================================
+   THƯ VIỆN ẢNH (DẠNG GRID ĐỀU NHAU)
+   ========================================== */
+.image-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+}
+
+.upload-card {
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    background: #f8fafc;
+}
+
+.upload-card:hover:not(.loading) {
+    border-color: var(--primary-olive);
+    color: var(--primary-olive);
+    background: #f1f5f9;
+}
+
+.upload-card.loading {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.image-item {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.image-item:hover img {
+    transform: scale(1.08);
+}
+
+.btn-delete-img {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.image-item:hover .btn-delete-img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.btn-delete-img:hover {
+    background: rgb(220, 38, 38);
+}
+
+/* ==========================================
+   BIẾN THỂ (THU GỌN CHO CỘT PHẢI)
+   ========================================== */
+/* ==========================================
+   BIẾN THỂ (THU GỌN - 1 HÀNG NGANG)
+   ========================================== */
+.add-variant-compact {
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px dashed #cbd5e1;
+    display: flex;       /* Ép các phần tử nằm ngang */
+    gap: 10px;           /* Khoảng cách giữa các ô */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.add-variant-compact input {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    font-size: 13px;
+    min-width: 0; /* Ngăn ô input bị tràn khi nội dung dài */
+}
+
+.add-variant-compact input:focus {
+    border-color: var(--primary-olive);
+}
+
+/* Cho ô Tên dài hơn ô Giá một chút */
+.variant-name-input {
+    flex: 3; 
+}
+
+.variant-price-input {
+    flex: 2;
+}
+
+.btn-add-variant {
+    background: #27ae60; 
+    color: #fff; 
+    border: none;
+    padding: 10px 16px; 
+    border-radius: 6px; 
+    font-weight: 600;
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+    cursor: pointer;
+    white-space: nowrap; /* Chống rớt dòng chữ "Thêm" */
+    flex-shrink: 0;      /* Giữ nguyên kích thước nút, không bị bóp méo */
+    transition: 0.2s;
+}
+
+.btn-add-variant:hover {
+    background: #219653;
+}
+.btn-delete-variant-mini {
+    background-color: transparent; /* Mặc định trong suốt cho thanh thoát */
+    color: #94a3b8;                /* Màu xám nhẹ, không gây chói mắt */
+    border: none;                  /* Xóa sạch mọi viền đen thô kệch */
+    outline: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+/* Tùy chỉnh trực tiếp nét vẽ của thẻ SVG bên trong */
+.btn-delete-variant-mini svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 1.5px; /* Làm cho nét icon mảnh và thanh lịch hơn */
+    display: block;
+}
+
+/* Hiệu ứng nổi bật (Màu đỏ) khi người dùng rê chuột vào */
+.btn-delete-variant-mini:hover {
+    background-color: #fee2e2;
+    color: #ef4444; 
+}
+
+.save-action-bar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.variant-table {
+    border-collapse: collapse;
+}
+
+.variant-table th,
+.variant-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: middle;
+}
+
+.variant-table thead th {
+    font-size: 12px;
+    color: #64748b;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.variant-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+@media (max-width: 1200px) {
+    .detail-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .right-col {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-detail-container {
+        padding: 16px;
+    }
+
+    .detail-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .detail-layout {
+        gap: 16px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: span 1;
+    }
+
+    .add-variant-compact {
+        flex-wrap: wrap;
+        align-items: stretch;
+    }
+
+    .variant-name-input,
+    .variant-price-input,
+    .btn-add-variant {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .save-action-bar {
+        justify-content: stretch;
+    }
+
+    .btn-save-primary {
+        width: 100%;
+        justify-content: center;
+    }
+}
